@@ -28,10 +28,10 @@
         <div class="col-md-8 offset-md-2">
             <div class="panel panel-primary">
                 <div class="panel heading">
-                    <h1 class="panel-title">Recipes </h1>
+                    <h1 class="panel-title">Ingredients</h1>
                 </div>
                 <div class="panel-body">
-                    <div class="table-responsive" th:if="${not#lists.isEmpty(recipes)}">
+                    <div class="table-responsive" th:if="${not#lists.isEmpty(ingredients)}">
                         <table class="table table-hover">
                             <thead class="thead-inverse">
                             <tr>
@@ -43,12 +43,12 @@
                             </tr>
                             </thead>
 
-                            <tr th:each="recipe:${recipes}">
-                                <td th:text="${recipe.id}">123</td>
-                                <td th:text="${recipe.description}">Recipe 3</td>
-                                <td><a href="#" th:href="@{'/recipe/'+${recipe.id}+'/show'}">View</a> </td>
-                                <td><a href="#" th:href="@{'/recipe/'+${recipe.id}+'/update'}">Update</a> </td>
-                                <td><a href="#" th:href="@{'/recipe/'+${recipe.id}+'/delete'}">Delete</a> </td>
+                            <tr th:each="ingredient:${ingredients}">
+                                <td th:text="${ingredient.getId()}">123</td>
+                                <td th:text="${ingredient.description}">Ingredient Type</td>
+                                <td><a href="#" th:href="@{'/recipe/'+${}+'/show'}">View</a> </td>
+                                <td><a href="#" th:href="@{'/recipe/'+${}+'/update'}">Update</a> </td>
+                                <td><a href="#" th:href="@{'/recipe/'+${}+'/delete'}">Delete</a> </td>
                             </tr>
 
                         </table>
@@ -56,10 +56,10 @@
                 </div>
                 <a class="btn btn-primary" href="/recipe/new" role="button">Add New</a>
             </div>
-                </div>
-            </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 
 </body>

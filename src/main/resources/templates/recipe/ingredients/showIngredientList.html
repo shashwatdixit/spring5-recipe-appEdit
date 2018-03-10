@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Recipe Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/4.0.0-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/4.0.0-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">The World Cookbook</a>
+
+    <span class="navbar-text">
+    Copyright 2018. All rights reserved.
+    </span>
+</nav>
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="panel panel-primary">
+                <div class="panel heading">
+                    <h1 class="panel-title">Ingredients</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not#lists.isEmpty(ingredients)}">
+                        <table class="table table-hover">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>Id</th>
+                                <th>Description</th>
+                                <th>View</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+
+                            <tr th:each="ingredient:${ingredients}">
+                                <td th:text="${ingredient.getId()}">123</td>
+                                <td th:text="${ingredient.description}">Ingredient Type</td>
+                                <td><a href="#" th:href="@{'/recipe/'+${ingredient.getRecipeId()}+'/ingredient/'+${ingredient.getId()}+'/show'}">View</a> </td>
+                                <td><a href="#" th:href="@{'/recipe/'+${}+'/update'}">Update</a> </td>
+                                <td><a href="#" th:href="@{'/recipe/'+${}+'/delete'}">Delete</a> </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <a class="btn btn-primary" href="/recipe/new" role="button">Add New</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

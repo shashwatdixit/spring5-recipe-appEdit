@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous" th:src="@{/webjars/bootstrap/4.0.0-1/js/bootstrap.min.js}"></script>
+    <title>Recipe This that</title>
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
@@ -22,45 +23,45 @@
     Copyright 2018. All rights reserved.
     </span>
 </nav>
-
+<!--/*@thymesVar id="ingredient" type="guru.springframework.spring5recipeapp.commands.IngredientCommand"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="panel panel-primary">
-                <div class="panel heading">
-                    <h1 class="panel-title">Ingredients</h1>
+                <div class="panel-heading">
+                    <h1 class="panel-title">Ingredient</h1>
                 </div>
                 <div class="panel-body">
-                    <div class="table-responsive" th:if="${not#lists.isEmpty(ingredients)}">
-                        <table class="table table-hover">
+                    <div class="table-responsive">
+                        <table class="table table-hover ">
                             <thead class="thead-inverse">
                             <tr>
-                                <th>Id</th>
+                                <th>ID</th>
                                 <th>Description</th>
-                                <th>View</th>
-                                <th>Update</th>
-                                <th>Delete</th>
                             </tr>
                             </thead>
-
-                            <tr th:each="ingredient:${ingredients}">
-                                <td th:text="${ingredient.getId()}">123</td>
-                                <td th:text="${ingredient.description}">Ingredient Type</td>
-                                <td><a href="#" th:href="@{'/recipe/'+${}+'/show'}">View</a> </td>
-                                <td><a href="#" th:href="@{'/recipe/'+${}+'/update'}">Update</a> </td>
-                                <td><a href="#" th:href="@{'/recipe/'+${}+'/delete'}">Delete</a> </td>
+                            <tr th:remove="all">
+                                <td>12333</td>
+                                <td>Tasty Goodnees 2</td>
+                                <td><a href="#">View</a></td>
+                                <td><a href="#">Update</a></td>
+                                <td><a href="#">Delete</a></td>
                             </tr>
 
+                            <tr>
+                                <td th:text="${ingredient.id}">334</td>
+                                <td th:text="${ingredient.amount} + ' ' + ${ingredient.unitOfMeasureCommand.getDescription()} + ' ' + ${ingredient.description}">Tasty Goodnees 3</td>
+                            </tr>
                         </table>
                     </div>
                 </div>
-                <a class="btn btn-primary" href="/recipe/new" role="button">Add New</a>
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
+
+
 
 </body>
+
 </html>

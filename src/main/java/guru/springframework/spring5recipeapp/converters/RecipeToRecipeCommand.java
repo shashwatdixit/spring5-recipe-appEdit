@@ -43,7 +43,7 @@ public class RecipeToRecipeCommand implements Converter<Recipe,RecipeCommand> {
         recipeCommand.setServings(recipe.getServings());
         recipeCommand.setUrl(recipe.getUrl());
         recipeCommand.setId(recipe.getId());
-
+        recipeCommand.setImage(recipe.getImage());
 
 
         if (recipe.getCategories() != null && recipe.getCategories().size() > 0){

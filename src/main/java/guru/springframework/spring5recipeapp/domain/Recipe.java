@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 @Entity
 public class Recipe {
@@ -21,6 +22,15 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
+    private String ipAddress;
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
 
     @Enumerated(value=EnumType.STRING)
     private Difficulty difficulty;
